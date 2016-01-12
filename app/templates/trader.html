@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}alpha2fund{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	{% if not current_user.is_authenticated %}
+    <h1>你好, 请先登录!</h1>
+    {% elif current_user.role==2 %}
+    <h1>这是交易员{{current_user.username}}的页面.<h1>
+    {% else %}
+    <h1>非法访问</h1>
+    {% endif %}
+</div>
+{% endblock %}
